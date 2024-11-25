@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button_login = findViewById(R.id.button_login); //画面遷移先のトリガーとなるボタン指定
+        Button button_login = findViewById(R.id.button_login); //画面遷移先のトリガーとなるボタン指定で
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
