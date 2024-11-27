@@ -6,20 +6,21 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="341dp"
-        android:layout_height="52dp"
-        android:text="ログイン画面"
-        android:textSize="34sp"
+        android:id="@+id/textView3"
+        android:layout_width="241dp"
+        android:layout_height="132dp"
         android:gravity="center"
+        android:text="工事中ダヨーン"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.552"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.131" />
+        app:layout_constraintVertical_bias="0.41" />
 
     <Button
-        android:id="@+id/button_back"
+        android:id="@+id/account_back"
         android:layout_width="250dp"
         android:layout_height="71dp"
         android:backgroundTint="#FF4081"
@@ -27,24 +28,9 @@
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.427"
-        app:strokeColor="#00BCD4" />
-
-    <Button
-        android:id="@+id/login_second"
-        android:layout_width="250dp"
-        android:layout_height="71dp"
-        android:backgroundTint="#FF4081"
-        android:text="ログインする"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.604"
+        app:layout_constraintVertical_bias="0.651"
         app:strokeColor="#00BCD4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

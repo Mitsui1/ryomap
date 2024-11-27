@@ -20,5 +20,16 @@ public class LoginActivity extends AppCompatActivity {
                 overridePendingTransition(0, 0);
             }
         });
+
+        Button login_second = findViewById(R.id.login_second);
+        login_second.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0, 0); // アニメーションなし
+            }
+        });
+
     }
 }
