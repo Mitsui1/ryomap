@@ -10,7 +10,7 @@
         android:layout_width="343dp"
         android:layout_height="94dp"
         android:gravity="center"
-        android:text="しょうがの"
+        android:text="しょうが"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
