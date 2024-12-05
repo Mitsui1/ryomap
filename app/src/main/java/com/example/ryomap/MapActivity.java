@@ -1,15 +1,19 @@
 package com.example.ryomap;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 
-
-public class MapActivity extends AppCompatActivity {
-    private Button back_btn;
+public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
+    private GoogleMap mMap;
+    private Button back_btn, zoomInBtn, zoomOutBtn;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -17,12 +21,48 @@ public class MapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map);
 
-        back_btn = findViewById(R.id.back_btn);
-        back_btn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        // Google Mapの準備
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this);
+        }
 
+        // 戻るボタンの設定
+        back_btn = findViewById(R.id.back_btn);
+        back_btn.setOnClickListener(v -> onBackPressed());
+
+        // ズームインボタンの設定
+        zoomInBtn = findViewById(R.id.zoom_in_btn);
+        zoomInBtn.setOnClickListener(v -> zoomIn());
+
+        // ズームアウトボタンの設定
+        zoomOutBtn = findViewById(R.id.zoom_out_btn);
+        zoomOutBtn.setOnClickListener(v -> zoomOut());
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // 初期位置の設定
+        LatLng tokyo = new LatLng(35.6895, 139.6917);  // 例: 東京
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(tokyo, 10));  // ズームレベル10
+    }
+
+    // ズームインの処理
+    private void zoomIn() {
+        if (mMap != null) {
+            float zoomLevel = mMap.getCameraPosition().zoom;
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(mMap.getCameraPosition().target, zoomLevel + 1));
+        }
+    }
+
+    // ズームアウトの処理
+    private void zoomOut() {
+        if (mMap != null) {
+            float zoomLevel = mMap.getCameraPosition().zoom;
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(mMap.getCameraPosition().target, zoomLevel - 1));
+        }
     }
 }
