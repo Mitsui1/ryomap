@@ -46,8 +46,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // 初期位置の設定
-        LatLng tokyo = new LatLng(33.620, 133.719);  // 例: 高知工科大学
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(tokyo, 13));  // ズームレベル13
+        LatLng kochi = new LatLng(33.620, 133.719);  // 例: 高知工科大学
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kochi, 13));  // ズームレベル13
     }
 
     // ズームインの処理
