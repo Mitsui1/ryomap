@@ -19,13 +19,14 @@ import java.util.List;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
-    private Button back_btn, zoomInBtn, zoomOutBtn, sightseeingButton, foodButton;
+    private Button zoomInBtn, zoomOutBtn, sightseeingButton, foodButton;
     private boolean pinsadd = false;
 
-    double[] position_x = new double[]{33.6, 33.7};
-    double[] position_y = new double[]{133.7, 133.65};
-    String[] position_name = new String[]{"test", "test2"};
-    int s = position_name.length;
+    double[] position_x = new double[]{33.6, 33.7, 33.8};
+    double[] position_y = new double[]{133.7, 133.65, 133.5};
+    String[] position_name = new String[]{"test", "test2","test3"};
+
+    Marker[] markers = new Marker[position_name.length];
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -89,7 +90,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             if (mMap != null && !pinsadd) {
                 // 高知工科大学
                 LatLng location1 = new LatLng(position_x[i], position_y[i]);
-                Marker marker = mMap.addMarker(new MarkerOptions()
+                markers[i] = mMap.addMarker(new MarkerOptions()
                         .position(location1)
                         .title(position_name[i]));
                 // テスト用観光地
@@ -99,13 +100,14 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 //                        .title("観光地2"));
 //             マーカークリックイベントの設定
                 mMap.setOnMarkerClickListener(clickedMarker -> {
-                    if (clickedMarker.equals(marker)) {
-                        Intent intent = new Intent(MapActivity.this, DetailActivity.class);
-                        intent.putExtra("PLACE_NAME", "高知工科大学");
-                        intent.putExtra("PLACE_DESCRIPTION", "高知県の技術系大学で、最新の研究施設を備えています。");
-                        startActivity(intent);
-                        return true;
-                    }
+                    for(int j = 0; j < position_name.length; j++) {
+                        if (clickedMarker.equals(markers[j])) {
+                            Intent intent = new Intent(MapActivity.this, DetailActivity.class);
+                            //intent.putExtra("PLACE_NAME", "高知工科大学");
+                            //intent.putExtra("PLACE_DESCRIPTION", "高知県の技術系大学で、最新の研究施設を備えています。");
+                            startActivity(intent);
+                            return true;
+                        }
 //                    if (clickedMarker.equals(marker)) {
 //                        Intent intent = new Intent(MapActivity.this, DetailActivity.class);
 //                        intent.putExtra("PLACE_NAME", "観光地2");
@@ -113,8 +115,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 //                        startActivity(intent);
 //                        return true;
 //                    }
-                    return false;
+                    }
+                        return false;
+
                 });
+
             }
         }
         pinsadd = true; // ピンが追加されたことを記録

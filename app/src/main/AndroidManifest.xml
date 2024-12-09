@@ -9,6 +9,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+
         android:supportsRtl="true"
         android:theme="@style/Theme.Ryomap"
         tools:targetApi="31">
@@ -32,7 +33,7 @@
         <activity android:name=".AccountActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".MapActivity" />
-        <activity android:name=".MapSightseeing" />
+
         <activity android:name=".DetailActivity" />
 
         <meta-data
