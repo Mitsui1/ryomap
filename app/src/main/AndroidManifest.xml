@@ -32,6 +32,8 @@
         <activity android:name=".AccountActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".MapActivity" />
+        <activity android:name=".MapSightseeing" />
+        <activity android:name=".DetailActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

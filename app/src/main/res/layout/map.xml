@@ -18,18 +18,18 @@
 
     </RelativeLayout>
 
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="874dp"
+        android:layout_height="1528dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.236"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bar"
-        app:layout_constraintVertical_bias="1.0" />
-
+        app:layout_constraintVertical_bias="0.12" />
 
     <Button
         android:id="@+id/zoom_in_btn"
@@ -62,7 +62,7 @@
         app:layout_constraintVertical_bias="0.987" />
 
     <Button
-        android:id="@+id/back_btn"
+        android:id="@+id/backmenu_btn"
         android:layout_width="125dp"
         android:layout_height="62dp"
         android:text="戻る"
@@ -73,6 +73,84 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.012" />
+
+    <Button
+        android:id="@+id/sightseeingbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="観光地"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/map"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.218" />
+
+    <Button
+        android:id="@+id/foodbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="飲食店"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/map"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.253" />
+
+    <Button
+        android:id="@+id/hotelbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ホテル"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/map"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.288" />
+
+    <Button
+        android:id="@+id/eventbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="イベント"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/map"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.323" />
+
+    <Button
+        android:id="@+id/favoritebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="お気に入り"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/map"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.358" />
+
+    <Button
+        android:id="@+id/secretbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="穴場スポット"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/map"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.393" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
