@@ -5,66 +5,202 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <View
+        android:id="@+id/top_background"
+        android:layout_width="606dp"
+        android:layout_height="143dp"
+        android:background="#abe1fa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <View
+        android:id="@+id/bottom_background"
+        android:layout_width="614dp"
+        android:layout_height="127dp"
+        android:background="#abe1fa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="420dp"
         android:layout_height="83dp"
+        android:gravity="center"
         android:text="竜馬っぷ　メニュー画面"
         android:textSize="30sp"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.067"
-        />
-
-    <Button
-        android:id="@+id/favorite"
-        android:layout_width="144dp"
-        android:layout_height="141dp"
-        android:backgroundTint="#BCE1DF"
-        android:text="マップ"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.134"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.311"
-        app:strokeColor="#00BCD4" />
+        app:layout_constraintVertical_bias="0.047" />
 
     <Button
         android:id="@+id/map"
-        android:layout_width="144dp"
-        android:layout_height="141dp"
-        android:backgroundTint="#BCE1DF"
-        android:text="お気に入り"
-        android:textColor="@color/black"
-        android:textSize="24sp"
+        android:layout_width="145dp"
+        android:layout_height="145dp"
+        android:backgroundTint="#ffebd8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.88"
+        app:layout_constraintHorizontal_bias="0.112"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.311"
+        app:layout_constraintVertical_bias="0.31" />
+
+    <Button
+        android:id="@+id/favorite"
+        android:layout_width="145dp"
+        android:layout_height="145dp"
+        android:backgroundTint="#ffebd8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.31"
         app:strokeColor="#00BCD4" />
 
     <Button
         android:id="@+id/event"
-        android:layout_width="144dp"
-        android:layout_height="141dp"
-        android:backgroundTint="#BCE1DF"
+        android:layout_width="145dp"
+        android:layout_height="145dp"
+        android:backgroundTint="#ffebd8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.631"
+        app:strokeColor="#00BCD4" />
+
+    <TextView
+        android:layout_width="143dp"
+        android:layout_height="68dp"
+        android:gravity="center"
+        android:text="マップ"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.388" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="146dp"
+        android:layout_height="71dp"
+        android:gravity="center"
         android:text="イベント"
-        android:textColor="@color/black"
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.674" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="146dp"
+        android:layout_height="71dp"
+        android:gravity="center"
+        android:text="お気に入り"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.386" />
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/zititai_button"
+        android:layout_width="181dp"
+        android:layout_height="57dp"
+        android:backgroundTint="#ffebd8"
+        android:text="自治体の方へ"
+        android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/top_background"
+        app:layout_constraintVertical_bias="0.947"
+        app:strokeColor="#000000"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/mypage_button"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:backgroundTint="#d9d9d9"
+        android:gravity="center"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.569"
-        app:strokeColor="#00BCD4" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:layout_width="103dp"
+        android:layout_height="81dp"
+        android:src="@drawable/menumap"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.165"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.298" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="113dp"
+        android:layout_height="75dp"
+        android:src="@drawable/menuevent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.594" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="130dp"
+        android:layout_height="76dp"
+        android:src="@drawable/mypagebutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.93" />
+
+    <TextView
+        android:layout_width="127dp"
+        android:layout_height="52dp"
+        android:gravity="center"
+        android:text="マイページ"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

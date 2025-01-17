@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //画面遷移元と画面遷移先の指定
-                Intent intent = new Intent(MainActivity.this, MapActivity.class);
+                Intent intent = new Intent(MainActivity.this, Login.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0); //画面遷移のアニメーション削除
             }
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //画面遷移元と画面遷移先の指定
-                Intent intent = new Intent(MainActivity.this, AccountActivity.class);
+                Intent intent = new Intent(MainActivity.this, AccountEdit.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0); //画面遷移のアニメーション削除
             }

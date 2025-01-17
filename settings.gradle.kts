@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ryomap"
 include(":app")
+include(":app:lib")

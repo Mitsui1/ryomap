@@ -53,7 +53,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             @Override
             public void onClick(View v) {
                 //画面遷移元と画面遷移先の指定
-                Intent intent = new Intent(MapActivity.this, MainActivity.class);
+                Intent intent = new Intent(MapActivity.this, MenuActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0); //画面遷移のアニメーション削除
             }
@@ -77,7 +77,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         // 初期位置の設定
         LatLng kochi = new LatLng(33.620, 133.719);  // 例: 高知工科大学
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kochi, 11));  // ズームレベル11
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kochi, 10));  // ズームレベル11
     }
 
     // 観光地のピンを追加する処理

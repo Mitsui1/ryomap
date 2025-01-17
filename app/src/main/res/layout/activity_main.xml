@@ -7,48 +7,97 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="380dp"
-        android:layout_height="50dp"
-        android:fontFamily="sans-serif-black"
-        android:text="竜馬っぷ　スタート画面"
-        android:textAlignment="center"
-        android:textSize="34sp"
+
+    <View
+        android:id="@+id/top_background"
+        android:layout_width="606dp"
+        android:layout_height="143dp"
+        android:background="#ffebd8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.089" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <Button
+    <View
+        android:id="@+id/bottom_background"
+        android:layout_width="614dp"
+        android:layout_height="127dp"
+        android:background="#ffebd8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.998" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_login"
-        android:layout_width="384dp"
-        android:layout_height="105dp"
-        android:backgroundTint="#FF4081"
+        android:layout_width="365dp"
+        android:layout_height="115dp"
+        android:backgroundTint="#ffebd8"
         android:text="ログインする！"
-        android:textSize="34sp"
+        android:textColor="#000000"
+        android:textSize="39sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.193"
-        app:strokeColor="#00BCD4" />
+        app:layout_constraintTop_toTopOf="@+id/top_background"
+        app:layout_constraintVertical_bias="0.358"
+        app:strokeColor="#000000"
+        app:strokeWidth="2dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_account"
-        android:layout_width="384dp"
-        android:layout_height="105dp"
+        android:layout_width="365dp"
+        android:layout_height="115dp"
+        android:backgroundTint="#ffebd8"
         android:text="アカウント作成"
-        android:textSize="34sp"
+        android:textColor="#000000"
+        android:textSize="39sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.519"
-        app:strokeColor="#00BCD4" />
+        app:layout_constraintTop_toTopOf="@+id/top_background"
+        app:layout_constraintVertical_bias="0.656"
+        app:strokeColor="#000000"
+        app:strokeWidth="2dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="龍馬っぷ"
+        android:textColor="#ff3131"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.047" />
+
+    <ImageView
+        android:layout_width="161dp"
+        android:layout_height="129dp"
+        android:src="@drawable/startmap"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:layout_width="154dp"
+        android:layout_height="129dp"
+        android:src="@drawable/naruko"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
