@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/TextView"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+
+
+    <TextView
+
+        android:id="@+id/textView_logout"
+
+        android:layout_width="341dp"
+
+        android:layout_height="52dp"
+
+        android:gravity="center"
+
+        android:text="ログアウト確認画面"
+
+        android:textSize="34sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.023" />
+
+
+
+    <TextView
+
+        android:id="@+id/textView_logout2"
+
+        android:layout_width="340dp"
+
+        android:layout_height="56dp"
+
+        android:gravity="center"
+
+        android:text="本当にログアウトしますか?"
+
+        android:textColor="#F44336"
+
+        android:textSize="25sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.492"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.226" />
+
+
+
+    <Button
+
+        android:id="@+id/button_back_logout"
+
+        android:layout_width="126dp"
+
+        android:layout_height="78dp"
+
+        android:backgroundTint="#00BCD4"
+
+        android:text="戻る"
+
+        android:textSize="34sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.217"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.921"
+
+        app:strokeColor="#E91E63" />
+
+
+
+    <Button
+
+        android:id="@+id/button_logout"
+
+        android:layout_width="284dp"
+
+        android:layout_height="80dp"
+
+        android:backgroundTint="#00BCD4"
+
+        android:text="ログアウトする"
+
+        android:textSize="30sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.488"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.483"
+
+        app:strokeColor="#E91E63" />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

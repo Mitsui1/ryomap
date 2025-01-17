@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+
+
+    <TextView
+
+        android:id="@+id/textView"
+
+        android:layout_width="340dp"
+
+        android:layout_height="50dp"
+
+        android:gravity="center"
+
+        android:text="マイページ"
+
+        android:textSize="34sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.023" />
+
+
+
+    <Button
+
+        android:id="@+id/button_account_change"
+
+        android:layout_width="300dp"
+
+        android:layout_height="80dp"
+
+        android:backgroundTint="#B3BABA"
+
+        android:text="アカウント情報変更"
+
+        android:textSize="25sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.495"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.281"
+
+        app:strokeColor="#E91E63" />
+
+
+
+    <Button
+
+        android:id="@+id/button_logout"
+
+        android:layout_width="300dp"
+
+        android:layout_height="80dp"
+
+        android:backgroundTint="#B3BABA"
+
+        android:text="ログアウト"
+
+        android:textSize="25sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.495"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.499"
+
+        app:strokeColor="#E91E63" />
+
+
+
+    <Button
+
+        android:id="@+id/button_back_menu"
+
+        android:layout_width="240dp"
+
+        android:layout_height="80dp"
+
+        android:backgroundTint="#FFC107"
+
+        android:text="メニュー画面へ"
+
+        android:textSize="25sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.497"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.932"
+
+        app:strokeColor="#E91E63" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    tools:context=".MapActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/bar"
+        android:background="@color/white"
+        tools:ignore="MissingConstraints">
+
+
+    </RelativeLayout>
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="874dp"
+        android:layout_height="1528dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bar"
+        app:layout_constraintVertical_bias="0.483" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:padding="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <!-- ズームインボタン -->
+        <Button
+            android:id="@+id/zoom_in_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#80FFFFFF"
+            android:text="+"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            app:cornerRadius="10dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="2dp" />
+
+        <!-- ズームアウトボタン -->
+        <Button
+            android:id="@+id/zoom_out_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#80FFFFFF"
+            android:text="-"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            app:cornerRadius="10dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="2dp" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/backmenu_btn"
+        android:layout_width="111dp"
+        android:layout_height="71dp"
+        android:backgroundTint="#80ffffcc"
+        android:text="戻る"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:strokeColor="#000000"
+        app:strokeWidth="2dp" />
+
+    <!-- ボタンを縦並びに配置 -->
+    <LinearLayout
+        android:id="@+id/segmented_buttons"
+        android:layout_width="115dp"
+        android:layout_height="271dp"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:padding="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.206">
+
+        <!-- 観光地ボタン -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sightseeingbutton"
+            android:layout_width="109dp"
+            android:layout_height="44dp"
+            android:backgroundTint="#80FFFFFF"
+            android:text="観光地"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:cornerRadius="10dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="2dp" />
+
+        <!-- 飲食店ボタン -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/foodbutton"
+            android:layout_width="109dp"
+            android:layout_height="44dp"
+            android:backgroundTint="#80FFFFFF"
+            android:text="飲食店"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:cornerRadius="10dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="2dp" />
+
+        <!-- ホテルボタン -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/hotelbutton"
+            android:layout_width="109dp"
+            android:layout_height="44dp"
+            android:backgroundTint="#80FFFFFF"
+            android:text="ホテル"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:cornerRadius="10dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="2dp" />
+
+        <!-- イベントボタン -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/eventbutton"
+            android:layout_width="109dp"
+            android:layout_height="44dp"
+            android:backgroundTint="#80FFFFFF"
+            android:text="イベント"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:cornerRadius="10dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="2dp" />
+
+        <!-- お気に入りボタン -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/favoritebutton"
+            android:layout_width="109dp"
+            android:layout_height="44dp"
+            android:backgroundTint="#80FFFFFF"
+            android:text="お気に入り"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            app:cornerRadius="10dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="2dp" />
+
+        <!-- 穴場スポットボタン -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/secretbutton"
+            android:layout_width="109dp"
+            android:layout_height="44dp"
+            android:backgroundTint="#80FFFFFF"
+            android:text="穴場スポット"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            app:cornerRadius="10dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="2dp" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
