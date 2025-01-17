@@ -20,7 +20,7 @@
 
         android:orientation="vertical"
 
-        android:padding="16dp" >
+        android:padding="15dp" >
 
 
 
@@ -70,7 +70,7 @@
 
                         android:id="@+id/spot"
 
-                        android:text="観光地"
+                        android:text="スポット"
 
                         style="?attr/materialButtonOutlinedStyle"
 
@@ -138,7 +138,7 @@
 
                         style="?attr/materialButtonOutlinedStyle"
 
-                        android:tag="6" />
+                        android:tag="5" />
 
 
 
@@ -160,17 +160,17 @@
 
             android:layout_height="wrap_content"
 
-            android:text="写真を選択してください" />
+            android:text="写真をしてください" />
 
 
 
         <Button
 
-            android:id="@+id/selectImageButton"
-
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
+
+            android:id="@+id/selectImageButton"
 
             android:text="写真を開く" />
 
@@ -178,11 +178,11 @@
 
         <ImageView
 
-            android:id="@+id/selectedImageView"
-
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
+
+            android:id="@+id/selectedImageView"
 
             android:hint="写真" />
 
@@ -190,11 +190,11 @@
 
         <EditText
 
-            android:id="@+id/inputSpotName"
-
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
+
+            android:id="@+id/inputSpotName"
 
             android:hint="名前" />
 
@@ -202,11 +202,11 @@
 
         <EditText
 
-            android:id="@+id/inputAddress"
-
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
+
+            android:id="@+id/inputAddress"
 
             android:hint="住所" />
 
@@ -214,11 +214,11 @@
 
         <EditText
 
-            android:id="@+id/inputPhoneNumber"
-
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
+
+            android:id="@+id/inputPhoneNumber"
 
             android:hint="電話番号" />
 
@@ -226,11 +226,11 @@
 
         <EditText
 
-            android:id="@+id/inputBesiHours"
-
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
+
+            android:id="@+id/inputBesiHours"
 
             android:hint="営業時間" />
 
@@ -238,11 +238,11 @@
 
         <EditText
 
-            android:id="@+id/inputUrl"
-
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
+
+            android:id="@+id/inputUrl"
 
             android:hint="ホームページのURL" />
 
@@ -250,11 +250,11 @@
 
         <EditText
 
-            android:id="@+id/inputSpotIntro"
-
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
+
+            android:id="@+id/inputSpotIntro"
 
             android:hint="説明文"
 
@@ -268,25 +268,27 @@
 
         <Button
 
-            android:id="@+id/insertSpotButton"
-
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
 
-            android:text="この内容でスポットを追加" />
+            android:id="@+id/insertSpotButton"
+
+            android:text="この内容でスポットを編集" />
 
 
 
         <Button
 
-            android:id="@+id/menu_back_button"
-
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
 
+            android:id="@+id/menu_back_button"
+
             android:text="メニュー画面へ戻る" />
+
+
 
     </LinearLayout>
 

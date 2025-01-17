@@ -25,18 +25,15 @@ public class DetailActivity extends AppCompatActivity {
 
     private TextView nameTextView, introTextView, hoursTextView, phoneTextView, addressTextView, urlTextView;
     private ImageView pictureImageView;
-
     private ImageView addFavorite, normalFavorite;
-    private boolean isFavorite = false;  // 現在の状態を管理
-    // markerTitleとmarkerAddressをクラス内で定義
+    private boolean isFavorite = false;
     private String markerTitle;
     private String markerAddress;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detail); // レイアウトの設定
+        setContentView(R.layout.detail);
 
         // UI要素の初期化
         nameTextView = findViewById(R.id.nameTextView);
@@ -49,82 +46,70 @@ public class DetailActivity extends AppCompatActivity {
 
         // Intentからデータを受け取る
         Intent intent = getIntent();
-        String markerTitle = intent.getStringExtra("markerTitle");
-        String markerAddress = intent.getStringExtra("markerAddress");
+        markerTitle = intent.getStringExtra("markerTitle");
+        markerAddress = intent.getStringExtra("markerAddress");
+        int spotId = intent.getIntExtra("spotId", -1);
+        //Log.d("DetailActivity", "Received spotId: " + spotId);
         // 受け取ったデータをビューにセット
         nameTextView.setText(markerTitle);
 
         // データベースから追加情報を取得
-        new FetchSpotDetailsTask().execute(markerTitle);
+        new FetchSpotDetailsTask().execute(spotId);
 
-        Button backmenu_btn = findViewById(R.id.backmap_btn); //画面遷移先のトリガーとなるボタン指定で
-        backmenu_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //画面遷移元と画面遷移先の指定
-                Intent intent = new Intent(DetailActivity.this, Maptest.class);
-                startActivity(intent);
-                overridePendingTransition(0, 0); //画面遷移のアニメーション削除
-            }
+        Button backmenu_btn = findViewById(R.id.backmap_btn);
+        backmenu_btn.setOnClickListener(v -> {
+            Intent intent1 = new Intent(DetailActivity.this, Maptest.class);
+            startActivity(intent1);
+            overridePendingTransition(0, 0);
         });
 
-        Button route_button = findViewById(R.id.root_btn); //画面遷移先のトリガーとなるボタン指定で
-        route_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //画面遷移元と画面遷移先の指定
-                Intent intent = new Intent(DetailActivity.this, RouteSearch.class);
-                intent.putExtra("markerTitle", markerTitle);  // markerTitle を渡す
-                intent.putExtra("markerAddress", markerAddress);  // markerAddress を渡す
-                Log.d("markerT=", markerTitle);
-                Log.d("markerA=", markerAddress);
-                startActivity(intent);
-                overridePendingTransition(0, 0); //画面遷移のアニメーション削除
-            }
+        Button route_button = findViewById(R.id.root_btn);
+        route_button.setOnClickListener(v -> {
+            Intent intent1 = new Intent(DetailActivity.this, RouteSearch.class);
+            intent1.putExtra("markerTitle", markerTitle);
+            intent1.putExtra("markerAddress", markerAddress);
+            Log.d("markerT=", markerTitle);
+            Log.d("markerA=", markerAddress);
+            startActivity(intent1);
+            overridePendingTransition(0, 0);
         });
 
         addFavorite = findViewById(R.id.addfavorite);
         normalFavorite = findViewById(R.id.normalfavorite);
         Button toggleButton = findViewById(R.id.addfavoriteButton);
 
-        toggleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 状態を切り替える
-                if (isFavorite) {
-                    addFavorite.setVisibility(View.GONE);  // 削除状態の画像を隠す
-                    normalFavorite.setVisibility(View.VISIBLE);  // 追加状態の画像を表示
-                } else {
-                    addFavorite.setVisibility(View.VISIBLE);  // 削除状態の画像を表示
-                    normalFavorite.setVisibility(View.GONE);  // 追加状態の画像を隠す
-                }
-                isFavorite = !isFavorite;  // 状態を切り替える
+        toggleButton.setOnClickListener(v -> {
+            if (isFavorite) {
+                addFavorite.setVisibility(View.GONE);
+                normalFavorite.setVisibility(View.VISIBLE);
+            } else {
+                addFavorite.setVisibility(View.VISIBLE);
+                normalFavorite.setVisibility(View.GONE);
             }
+            isFavorite = !isFavorite;
         });
-
-
     }
 
-    private class FetchSpotDetailsTask extends AsyncTask<String, Void, Spot> {
+    private class FetchSpotDetailsTask extends AsyncTask<Integer, Void, Spot> {
 
         @Override
-        protected Spot doInBackground(String... params) {
-            String spotName = params[0];
+        protected Spot doInBackground(Integer... params) {
+            int spotId = params[0]; // 受け取った spotId を使用
             Spot spot = null;
 
             try {
                 // データベース接続
                 Class.forName("org.mariadb.jdbc.Driver");
-                String url = "jdbc:mariadb://10.0.2.2:3306/test_db";  // データベースの接続情報
+                String url = "jdbc:mariadb://10.0.2.2:3306/test_db";
                 String user = "root";
                 String password = "h11y24n20";
 
                 Connection connection = DriverManager.getConnection(url, user, password);
 
                 if (connection != null) {
-                    String query = "SELECT spot_name, spot_intro, besi_hours, phone_number, address, image, url FROM SPOT WHERE spot_name = ?";
+                    String query = "SELECT spot_name, spot_intro, besi_hours, phone_number, address, image, url FROM spot WHERE spot_id = ?";
                     PreparedStatement statement = connection.prepareStatement(query);
-                    statement.setString(1, spotName);
+                    statement.setInt(1, spotId);
 
                     ResultSet resultSet = statement.executeQuery();
                     if (resultSet.next()) {
@@ -134,7 +119,7 @@ public class DetailActivity extends AppCompatActivity {
                                 resultSet.getString("besi_hours"),
                                 resultSet.getString("phone_number"),
                                 resultSet.getString("address"),
-                                resultSet.getString("image"),  // imageに変更
+                                resultSet.getString("image"),
                                 resultSet.getString("url")
                         );
                     }
@@ -156,24 +141,20 @@ public class DetailActivity extends AppCompatActivity {
             super.onPostExecute(spot);
 
             if (spot != null) {
-                // UIに表示する情報を設定
                 introTextView.setText(spot.getSpotIntro());
                 hoursTextView.setText(spot.getBesiHours());
                 phoneTextView.setText(spot.getPhoneNumber());
                 addressTextView.setText(spot.getAddress());
                 urlTextView.setText(spot.getUrl());
 
-                // 画像の設定
-                String imagePath = spot.getImage();  // imageに変更
+                String imagePath = spot.getImage();
 
                 if (imagePath != null && !imagePath.isEmpty()) {
                     if (imagePath.startsWith("http")) {
-                        // 画像のURLが指定されている場合、Picassoで画像を読み込む
                         Picasso.get().load(imagePath).into(pictureImageView);
                     } else {
-                        // パスが指定されている場合、そのパスを使って画像を読み込む
                         try {
-                            Bitmap bitmap = BitmapFactory.decodeFile(imagePath); // ファイルパスから画像を読み込む
+                            Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
                             pictureImageView.setImageBitmap(bitmap);
                         } catch (Exception e) {
                             Toast.makeText(DetailActivity.this, "画像の読み込みに失敗しました", Toast.LENGTH_SHORT).show();
@@ -187,7 +168,6 @@ public class DetailActivity extends AppCompatActivity {
         }
     }
 
-    // スポットの情報を保持するモデルクラス
     public static class Spot {
         private final String name;
         private final String spotIntro;
@@ -203,36 +183,16 @@ public class DetailActivity extends AppCompatActivity {
             this.besiHours = besiHours;
             this.phoneNumber = phoneNumber;
             this.address = address;
-            this.image = image;  // pictureからimageに変更
+            this.image = image;
             this.url = url;
         }
 
-        public String getName() {
-            return name;
-        }
-
-        public String getSpotIntro() {
-            return spotIntro;
-        }
-
-        public String getBesiHours() {
-            return besiHours;
-        }
-
-        public String getPhoneNumber() {
-            return phoneNumber;
-        }
-
-        public String getAddress() {
-            return address;
-        }
-
-        public String getImage() {
-            return image;  // pictureからimageに変更
-        }
-
-        public String getUrl() {
-            return url;
-        }
+        public String getName() { return name; }
+        public String getSpotIntro() { return spotIntro; }
+        public String getBesiHours() { return besiHours; }
+        public String getPhoneNumber() { return phoneNumber; }
+        public String getAddress() { return address; }
+        public String getImage() { return image; }
+        public String getUrl() { return url; }
     }
 }

@@ -29,7 +29,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //画面遷移元と画面遷移先の指定
-                Intent intent = new Intent(MenuActivity.this, SpotInsert.class);
+                Intent intent = new Intent(MenuActivity.this, SpotSelect.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0); //画面遷移のアニメーション削除
             }
