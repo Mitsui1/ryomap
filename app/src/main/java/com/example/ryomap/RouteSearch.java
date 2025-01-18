@@ -301,8 +301,6 @@ public class RouteSearch extends AppCompatActivity implements OnMapReadyCallback
         return urlstr;
     }
 
-
-
     // マーカーを削除するメソッド
     private void clearMarkers() {
         for (Marker marker : markers) {
@@ -327,8 +325,6 @@ public class RouteSearch extends AppCompatActivity implements OnMapReadyCallback
         }
     }
 
-
-
     public static class Spot {
         private final String name;
         private final String address;
@@ -338,7 +334,7 @@ public class RouteSearch extends AppCompatActivity implements OnMapReadyCallback
             this.address = address;
             this.image = image;
         }
-
+        
         public String getName() {
             return name;
         }
@@ -356,110 +352,47 @@ public class RouteSearch extends AppCompatActivity implements OnMapReadyCallback
     }
 
     private class FetchSpotsTask extends AsyncTask<Integer, Void, List<Spot>> {
-
-
-
         @Override
-
         protected List<Spot> doInBackground(Integer... params) {
-
             int kategoriId = params[0];
-
             List<Spot> spots = new ArrayList<>();
-
-
-
             try {
-
                 Class.forName("org.mariadb.jdbc.Driver");
-
                 String url = "jdbc:mariadb://10.0.2.2:3306/test_db";
-
                 String user = "root";
-
                 String password = "h11y24n20";
-
-
-
                 Connection connection = DriverManager.getConnection(url, user, password);
-
-
-
                 if (connection != null) {
-
                     String query = "SELECT spot_name, address, image FROM spot WHERE kategori_id = ?";
-
                     PreparedStatement statement = connection.prepareStatement(query);
-
                     statement.setInt(1, kategoriId);
-
-
-
                     ResultSet resultSet = statement.executeQuery();
-
                     while (resultSet.next()) {
-
                         String name = resultSet.getString("spot_name");
-
                         String address = resultSet.getString("address");
-
                         String imagePath = resultSet.getString("image");  // imageを取得
-
                         spots.add(new Spot(name, address, imagePath));
-
                     }
-
-
-
                     resultSet.close();
-
                     statement.close();
-
                     connection.close();
-
                 }
-
             } catch (Exception e) {
-
                 e.printStackTrace();
-
             }
-
-
-
             return spots;
-
         }
-
-
-
+        
         @Override
-
         protected void onPostExecute(List<Spot> spots) {
-
             super.onPostExecute(spots);
-
-
-
             if (spots.isEmpty()) {
-
                 Toast.makeText(RouteSearch.this, "該当するスポットが見つかりませんでした", Toast.LENGTH_SHORT).show();
-
             } else {
-
                 for (Spot spot : spots) {
-
                     geocodeAddressAndAddPin(spot.getName(), spot.getAddress());
-
                 }
-
             }
-
         }
-
     }
-
-
-
 }
-
