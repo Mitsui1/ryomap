@@ -108,9 +108,8 @@ public class MyAsync extends AsyncTask<String, Void, String> {
         } catch (
                 JSONException e) {
             e.printStackTrace();
-
         }
-
+        
         routeSearch.mMainHandler.post(new Runnable() {
             @Override
             public void run() {
@@ -120,19 +119,15 @@ public class MyAsync extends AsyncTask<String, Void, String> {
                     current_polyline.remove();
                     current_polyline = null;  // ポリラインをnullに設定して、再利用しないようにする
                 }
-
                 // 新しいポリラインオプションの作成
                 PolylineOptions polylineOptions = new PolylineOptions();
-
                 // 経路のポイントをポリラインオプションに追加
                 for (int i = 0; i < list.size(); i++) {
                     polylineOptions.addAll(list.get(i));
                 }
-
                 // ラインオプションを設定
                 polylineOptions.width(10); // 線の太さ
                 polylineOptions.color(Color.RED); // 線の色
-
                 // 新しいポリラインをマップに描画
                 current_polyline = mMap.addPolyline(polylineOptions);
 //                if (current_polyline != null) {
@@ -140,83 +135,41 @@ public class MyAsync extends AsyncTask<String, Void, String> {
 //                }
             }
         });
-
     }
 
     /**
-
      * Decodes polyline binary data given vy Google directions API. See below.
-
      * https://developers.google.com/maps/documentation/utilities/polylinealgorithm
-
      */
-
     private ArrayList<LatLng> decodePolyline (String encoded) {
         ArrayList<LatLng> point = new ArrayList<>();
         int index = 0;
-
         int len = encoded.length();
-
         int lat = 0;
-
         int lng = 0;
-
-
-
         while (index < len){
-
             int b;
-
             int shift = 0;
-
             int result = 0;
-
             do {
-
                 b = encoded.charAt(index++) - 63;
-
                 result |= (b & 0x1f) << shift;
-
                 shift += 5;
-
             } while (b >= 0x20);
-
             int dlat = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
-
             lat += dlat;
-
-
-
             shift = 0;
-
             result = 0;
-
             do {
-
                 b = encoded.charAt(index++) - 63;
-
                 result |= (b & 0x1f) << shift;
-
                 shift += 5;
-
             } while (b >= 0x20);
-
             int dlng = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
-
             lng += dlng;
-
-
-
             LatLng p = new LatLng(((double) lat / 1E5), ((double) lng / 1E5));
-
             point.add(p);
-
         }
-
-
-
         return point;
-
     }
-
 }
