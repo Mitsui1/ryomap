@@ -184,18 +184,15 @@ public class RouteSearch extends AppCompatActivity implements OnMapReadyCallback
                 double latitude = Double.parseDouble(latLngParts[0].trim());
                 double longitude = Double.parseDouble(latLngParts[1].trim());
                 LatLng orgLatLng = new LatLng(latitude, longitude);
-
                 // マーカーを追加
                 mMap.addMarker(new MarkerOptions().position(orgLatLng).title(org_markerTitle));
                 // マーカーの位置にカメラを移動
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(orgLatLng, 12));
-
             } catch (Exception e) {
                 Toast.makeText(this, "緯度経度の変換に失敗しました: " + org_markerAddress, Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         }
-
 
         // マーカークリックリスナーの設定
         mMap.setOnMarkerClickListener(marker -> {
@@ -208,8 +205,7 @@ public class RouteSearch extends AppCompatActivity implements OnMapReadyCallback
             return true; // イベント消費
         });
     }
-
-
+    
     private void fetchAndDisplaySpots(int kategoriId) {
         clearMarkers();  // 新しいスポットを表示する前に既存のマーカーを削除
         new FetchSpotsTask().execute(kategoriId);
@@ -238,19 +234,11 @@ public class RouteSearch extends AppCompatActivity implements OnMapReadyCallback
         }
     }
 
-
-
     private LatLng changegeocode(String markerAddress) {
-        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
         try {
-            Log.d("Geocoder", "変換する住所: " + markerAddress); // デバッグログ
-
-            List<Address> addresses = geocoder.getFromLocationName(markerAddress, 1);
-            if (addresses != null && !addresses.isEmpty()) {
-                Address location = addresses.get(0);
-                double latitude = location.getLatitude();
-                double longitude = location.getLongitude();
-
+                String[] latLngParts = markerAddress.replace("lat/lng: (", "").replace(")", "").split(",");
+                double latitude = Double.parseDouble(latLngParts[0].trim());
+                double longitude = Double.parseDouble(latLngParts[1].trim());
                 LatLng latLng = new LatLng(latitude, longitude);
                 Log.d("Geocoder", "変換成功: " + latitude + ", " + longitude); // 変換成功のログ
                 return latLng;
@@ -260,7 +248,6 @@ public class RouteSearch extends AppCompatActivity implements OnMapReadyCallback
         } catch (IOException e) {
             Log.e("Geocoder", "住所変換中にエラーが発生", e);
         }
-
         Toast.makeText(this, "住所の変換に失敗しました: " + markerAddress, Toast.LENGTH_SHORT).show();
         return null;
     }
@@ -268,27 +255,14 @@ public class RouteSearch extends AppCompatActivity implements OnMapReadyCallback
 
     public void exroute() {
         //ここでsqlを操作して出発地点と目的地を決める
-        String[] latLngParts = org_markerAddress.replace("lat/lng: (", "").replace(")", "").split(",");
-        double latitude = Double.parseDouble(latLngParts[0].trim());
-        double longitude = Double.parseDouble(latLngParts[1].trim());
-        LatLng org = new LatLng(latitude, longitude);
-
-        String[] latLngParts2 = dst_Address.replace("lat/lng: (", "").replace(")", "").split(",");
-        double latitude2 = Double.parseDouble(latLngParts2[0].trim());
-        double longitude2 = Double.parseDouble(latLngParts2[1].trim());
-        LatLng dst = new LatLng(latitude2, longitude2);
+        
+        LatLng org = new LatLng(changegeocode(org_markerAddress));
+        LatLng dst = new LatLng(changegeocode(dst_Address));
         Log.d("org=", org.toString());
         Log.d("dst=", dst.toString());
-//        LatLng org = changegeocode(org_markerAddress);
-//        LatLng dst = changegeocode(dst_Address);
         String url = getURL(org,dst);
         new MyAsync(this, mMap, polyline).execute(url);
-        if (polyline != null) {
-            polyline.remove();
-        }
     }
-
-
 
     //スタート地点と目標地点の座標を引数にもち，direction api のURLを返す
     private String getURL(LatLng org_latLng, LatLng dst_latLng) {
