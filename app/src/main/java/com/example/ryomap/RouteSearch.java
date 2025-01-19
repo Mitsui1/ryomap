@@ -180,10 +180,7 @@ public class RouteSearch extends AppCompatActivity implements OnMapReadyCallback
         if (org_markerAddress != null && !org_markerAddress.isEmpty()) {
             try {
                 // "33.49696000000001,133.5736653" のような形式を LatLng に変換
-                String[] latLngParts = org_markerAddress.replace("lat/lng: (", "").replace(")", "").split(",");
-                double latitude = Double.parseDouble(latLngParts[0].trim());
-                double longitude = Double.parseDouble(latLngParts[1].trim());
-                LatLng orgLatLng = new LatLng(latitude, longitude);
+                LatLng orgLatLng = new LatLng(changegeocode(org_markerAddress));
                 // マーカーを追加
                 mMap.addMarker(new MarkerOptions().position(orgLatLng).title(org_markerTitle));
                 // マーカーの位置にカメラを移動
@@ -255,7 +252,6 @@ public class RouteSearch extends AppCompatActivity implements OnMapReadyCallback
 
     public void exroute() {
         //ここでsqlを操作して出発地点と目的地を決める
-        
         LatLng org = new LatLng(changegeocode(org_markerAddress));
         LatLng dst = new LatLng(changegeocode(dst_Address));
         Log.d("org=", org.toString());
