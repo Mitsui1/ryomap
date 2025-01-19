@@ -25,11 +25,9 @@ public class MyAsync extends AsyncTask<String, Void, String> {
     private Activity mActivity;
     private GoogleMap mMap;
     RouteSearch routeSearch = new RouteSearch();
-    private Polyline current_polyline;
-    public MyAsync(Activity activity, GoogleMap googleMap, Polyline polyline) {
+    public MyAsync(Activity activity, GoogleMap googleMap) {
         mActivity = activity;
         mMap = googleMap;
-        current_polyline = polyline;
     }
     public interface ResponseListener {
         void onResponseDataReceived(String responseData);
@@ -79,8 +77,6 @@ public class MyAsync extends AsyncTask<String, Void, String> {
         //Text表示処理
         drawRoute(string);
     }
-
-
     private void drawRoute(String data) {
         if (data == null) {
             Log.w("SampleMap", "Can not draw route because of no data!!");
@@ -113,12 +109,6 @@ public class MyAsync extends AsyncTask<String, Void, String> {
         routeSearch.mMainHandler.post(new Runnable() {
             @Override
             public void run() {
-                // 既存のポリラインがあれば削除
-                if (current_polyline != null) {
-                    Log.d("ルート削除します", "ポリラインを削除");
-                    current_polyline.remove();
-                    current_polyline = null;  // ポリラインをnullに設定して、再利用しないようにする
-                }
                 // 新しいポリラインオプションの作成
                 PolylineOptions polylineOptions = new PolylineOptions();
                 // 経路のポイントをポリラインオプションに追加
@@ -129,7 +119,7 @@ public class MyAsync extends AsyncTask<String, Void, String> {
                 polylineOptions.width(10); // 線の太さ
                 polylineOptions.color(Color.RED); // 線の色
                 // 新しいポリラインをマップに描画
-                current_polyline = mMap.addPolyline(polylineOptions);
+                mMap.addPolyline(polylineOptions);
 //                if (current_polyline != null) {
 //                    current_polyline.remove();
 //                }
